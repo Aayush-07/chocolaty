@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chocolate For Nayab</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#1b0f08,#3a2015,#5d3824);
+color:#f7e8d7;
+overflow-x:hidden;
+}
+nav{
+position:fixed;
+left:0;top:0;
+width:240px;
+height:100vh;
+background:rgba(25,15,10,.85);
+padding:25px;
+backdrop-filter:blur(8px);
+}
+nav h1{margin-bottom:15px}
+nav a{
+display:block;
+padding:10px;
+margin:10px 0;
+background:#4d2b1d;
+color:#fff;
+text-decoration:none;
+border-radius:10px;
+}
+main{margin-left:260px;padding:35px}
+.card{
+background:rgba(255,255,255,.08);
+padding:25px;
+border-radius:18px;
+margin-bottom:25px;
+}
+button{
+padding:12px 20px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:#8b4513;
+color:#fff;
+margin-top:15px;
+}
+#musicBtn{
+position:fixed;
+bottom:20px;
+right:20px;
+z-index:1000;
+}
+@media(max-width:800px){
+nav{position:relative;width:100%;height:auto}
+main{margin-left:0}
+#musicBtn{bottom:10px;right:10px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<h1>🍫 Nayab</h1>
+<a href="#home">Home</a>
+<a href="#note">Little Note</a>
+<a href="#music">Music</a>
+</nav>
+
+<main>
+
+<div class="card" id="home">
+<h2>Some people make ordinary days feel special ❤️</h2>
+<p>This little space is just for you. No expectations. No pressure. Just care, respect and chocolates.</p>
+</div>
+
+<div class="card" id="note">
+<h2>A Little Note</h2>
+<p>My intent was always to stand beside you, respect you and wish the best for you.</p>
+</div>
+
+<div class="card" id="music">
+<h2>🎵 Background Music</h2>
+<p>Place <b>song.mp3</b> in the same folder as this <b>index.html</b> file.</p>
+
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+</audio>
+
+<button onclick="toggleMusic()" id="musicBtnInside">🎵 Play Music</button>
+
+</div>
+
+</main>
+
+<button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
+
+<script>
+const music=document.getElementById("bgMusic");
+const btn=document.getElementById("musicBtn");
+const btn2=document.getElementById("musicBtnInside");
+
+function toggleMusic(){
+    if(music.paused){
+        music.play();
+        btn.innerHTML="⏸ Pause Music";
+        btn2.innerHTML="⏸ Pause Music";
+    }else{
+        music.pause();
+        btn.innerHTML="🎵 Play Music";
+        btn2.innerHTML="🎵 Play Music";
+    }
+}
+</script>
+
+</body>
+</html>
